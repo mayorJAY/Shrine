@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -75,6 +76,10 @@ public class ProductGridFragment extends Fragment {
         if (activity != null){
             activity.setSupportActionBar(toolbar);
         }
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(getContext(),
+                view.findViewById(R.id.product_grid), new AccelerateDecelerateInterpolator(),
+                getContext().getResources().getDrawable(R.drawable.shr_branded_menu), // Menu open icon
+                getContext().getResources().getDrawable(R.drawable.shr_close_menu))); // Menu close icon));
     }
 
     @Override
